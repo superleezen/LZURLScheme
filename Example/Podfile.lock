@@ -1,0 +1,16 @@
+PODS:
+  - LZURLScheme (1.0.0)
+
+DEPENDENCIES:
+  - LZURLScheme (from `../`)
+
+EXTERNAL SOURCES:
+  LZURLScheme:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  LZURLScheme: e7a1aca415505c546ad9ad2acc5a809241d30d5b
+
+PODFILE CHECKSUM: 005aa76c2710d51a041985320f7564feaa6b1da3
+
+COCOAPODS: 1.5.3
