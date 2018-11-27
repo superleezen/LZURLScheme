@@ -1,0 +1,6 @@
+framework module LZURLScheme {
+  umbrella header "LZURLScheme-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -7,12 +7,16 @@
 //
 
 #import "LZAppDelegate.h"
+#import "SDKNavigationController.h"
 
 @implementation LZAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    [[UIApplication sharedApplication].delegate window].rootViewController = [[SDKNavigationController alloc] initWithRootViewControllerURL:[NSURL URLWithString:@"page://HomeViewController"]];
+    [self.window makeKeyAndVisible];
     return YES;
 }
 

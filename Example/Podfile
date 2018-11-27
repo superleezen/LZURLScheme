@@ -3,9 +3,5 @@ use_frameworks!
 target 'LZURLScheme_Example' do
   pod 'LZURLScheme', :path => '../'
 
-  target 'LZURLScheme_Tests' do
-    inherit! :search_paths
-
-    pod 'FBSnapshotTestCase'
-  end
 end
+

@@ -8,8 +8,8 @@
 
 Pod::Spec.new do |s|
   s.name             = 'LZURLScheme'
-  s.version          = '0.1.0'
-  s.summary          = 'A short description of LZURLScheme.'
+  s.version          = '1.0.0'
+  s.summary          = 'URLScheme.'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -21,16 +21,17 @@ Pod::Spec.new do |s|
 TODO: Add long description of the pod here.
                        DESC
 
-  s.homepage         = 'https://github.com/emailoflizheng@126.com/LZURLScheme'
+  s.homepage         = 'https://github.com/superleezen/LZURLScheme'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { 'emailoflizheng@126.com' => 'lizheng@limikeji.com' }
-  s.source           = { :git => 'https://github.com/emailoflizheng@126.com/LZURLScheme.git', :tag => s.version.to_s }
+  s.author           = { 'emailoflizheng@126.com' => 'lizheng' }
+  s.source           = { :git => 'https://github.com/superleezen/LZURLScheme', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '8.0'
 
-  s.source_files = 'LZURLScheme/Classes/**/*'
+  s.source_files = 'LZURLScheme/*'
+  s.resources = 'LZURLScheme/Resource/*.png'
   
   # s.resource_bundles = {
   #   'LZURLScheme' => ['LZURLScheme/Assets/*.png']
