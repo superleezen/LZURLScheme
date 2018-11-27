@@ -75,9 +75,9 @@
         }
         viewController.navigator = self;
     } else if ([self webURLAvailable:url]) {
-        NSString *className = url.host;
-        Class class = NSClassFromString(className);
-        viewController = (SDKWebViewController *)[[class alloc] initWithURL:url query:query];
+//        NSString *className = url.host;
+//        Class class = NSClassFromString(className);
+        viewController = [[SDKWebViewController alloc] initWithURL:url query:query];
         viewController.navigator = self;
     }
     return viewController;

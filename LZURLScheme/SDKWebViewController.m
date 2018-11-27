@@ -28,51 +28,6 @@
     [self.webView goForward];
 }
 
-- (void)initToolBar{
-    if (nil == self.toolbar) {
-        self.toolbar = [[UIToolbar alloc] init];
-        self.toolbar.tintColor = [UIColor darkGrayColor];
-        UIBarButtonItem *backItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"goBackItem.png"]
-                                                                     style:UIBarButtonItemStylePlain
-                                                                    target:self
-                                                                    action:@selector(goBack)];
-        UIBarButtonItem *fowardItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"goForwardItem.png"]
-                                                                       style:UIBarButtonItemStylePlain
-                                                                      target:self
-                                                                      action:@selector(goForward)];
-        UIBarButtonItem *refreshItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh
-                                                                                     target:self
-                                                                                     action:@selector(refresh)];
-        UIBarButtonItem *stopItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemStop
-                                                                                  target:self
-                                                                                  action:@selector(stop)];
-        backItem.enabled = NO;
-        fowardItem.enabled = NO;
-        refreshItem.enabled = NO;
-        stopItem.enabled = NO;
-        [self.toolbar setItems:[NSArray arrayWithObjects:
-                                backItem,
-                                [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:self action:nil],
-                                fowardItem,
-                                [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:self action:nil],
-                                refreshItem,
-                                [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:self action:nil],
-                                stopItem,
-                                nil
-                                ]];
-        [self.view addSubview:self.toolbar];
-        [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.toolbar attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeLeft multiplier:1 constant:0]];
-        [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.toolbar attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeRight multiplier:1 constant:0]];
-        [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.toolbar attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeBottom multiplier:1 constant:0]];
-        [self.toolbar addConstraint:[NSLayoutConstraint constraintWithItem:self.toolbar attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1 constant:49]];
-
-//        __weak __block typeof(self) wSelf = self;
-//        [self.toolbar mas_makeConstraints:^(MASConstraintMaker *make) {
-//            make.left.and.right.and.bottom.equalTo(wSelf.view);
-//            make.height.mas_equalTo(@49);
-//        }];
-    }
-}
 
 - (void)refresh{
     [self.webView reload];
@@ -104,7 +59,7 @@
 #pragma mark - public
 
 - (void)loadRequest{
-    if (![@"http" isEqualToString:[self.url protocol]]) {
+    if (![@"http" isEqualToString:[self.url protocol]] && ![@"https" isEqualToString:[self.url protocol]]) {
         self.url = [NSURL URLWithString:[self.params objectForKey:@"url"]];
     }
     NSMutableURLRequest *requestObj = [NSMutableURLRequest requestWithURL:self.url];
@@ -144,6 +99,28 @@
 - (void)viewDidLoad{
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    [self setupUI];
+    [self loadRequest];
+}
+
+- (void)setupUI{
+    self.view.backgroundColor = [UIColor whiteColor];
+    [self initWebView];
+    [self initToolBar];
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.toolbar attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeLeft multiplier:1 constant:0]];
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.toolbar attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeRight multiplier:1 constant:0]];
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.toolbar attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeBottom multiplier:1 constant:0]];
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.toolbar attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1 constant:49]];
+    
+    
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.webView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeTop multiplier:1 constant:0]];
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.webView attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeLeft multiplier:1 constant:0]];
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.webView attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeRight multiplier:1 constant:0]];
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.webView attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.toolbar attribute:NSLayoutAttributeTop multiplier:1 constant:0]];
+}
+
+- (void)initWebView{
     if (nil == self.webView) {
         self.webView = [[UIWebView alloc] init];
         self.webView.autoresizingMask = (UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth);
@@ -151,16 +128,53 @@
         self.webView.scalesPageToFit = YES;
         self.webView.delegate = self;
         self.webView.autoresizesSubviews = YES;
+        self.webView.translatesAutoresizingMaskIntoConstraints = NO;
         [self.view addSubview:self.webView];
-        
-//        __weak __block typeof(self) wSelf = self;
-//        [self.toolbar mas_makeConstraints:^(MASConstraintMaker *make) {
-//            make.left.and.right.and.top.equalTo(wSelf.view);
-//            make.bottom.equalTo(@49);
-//        }];
     }
-    [self initToolBar];
-    [self loadRequest];
+}
+
+- (void)initToolBar{
+    if (nil == self.toolbar) {
+        self.toolbar = [[UIToolbar alloc] init];
+        self.toolbar.tintColor = [UIColor darkGrayColor];
+        UIBarButtonItem *backItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:[[[NSBundle bundleForClass:[SDKWebViewController class]] resourcePath] stringByAppendingPathComponent:@"goBackItem@2x.png"]]
+                                                                     style:UIBarButtonItemStylePlain
+                                                                    target:self
+                                                                    action:@selector(goBack)];
+        
+        UIBarButtonItem *fowardItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:[[[NSBundle bundleForClass:[SDKWebViewController class]] resourcePath] stringByAppendingPathComponent:@"goForwardItem@2x.png"]]
+                                                                       style:UIBarButtonItemStylePlain
+                                                                      target:self
+                                                                      action:@selector(goForward)];
+        UIBarButtonItem *refreshItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh
+                                                                                     target:self
+                                                                                     action:@selector(refresh)];
+        UIBarButtonItem *stopItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemStop
+                                                                                  target:self
+                                                                                  action:@selector(stop)];
+        backItem.enabled = NO;
+        fowardItem.enabled = NO;
+        refreshItem.enabled = NO;
+        stopItem.enabled = NO;
+        [self.toolbar setItems:[NSArray arrayWithObjects:
+                                backItem,
+                                [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:self action:nil],
+                                fowardItem,
+                                [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:self action:nil],
+                                refreshItem,
+                                [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:self action:nil],
+                                stopItem,
+                                nil
+                                ]];
+        self.toolbar.translatesAutoresizingMaskIntoConstraints = NO;
+        [self.view addSubview:self.toolbar];
+        
+        //        __weak __block typeof(self) wSelf = self;
+        //        [self.toolbar mas_makeConstraints:^(MASConstraintMaker *make) {
+        //            make.left.and.right.and.bottom.equalTo(wSelf.view);
+        //            make.height.mas_equalTo(@49);
+        //        }];
+    }
 }
 
 @end

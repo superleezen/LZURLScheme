@@ -31,6 +31,14 @@
     [button addTarget:self action:@selector(jump) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:button];
     
+    
+    UIButton *button1 = [[UIButton alloc] init];
+    button1.frame = CGRectMake(100, 400, 200, 30);
+    button1.backgroundColor = [UIColor blueColor];
+    [button1 setTitle:@"跳转Web" forState:UIControlStateNormal];
+    [button1 addTarget:self action:@selector(jumpWeb) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:button1];
+    
 }
 
 - (void)jump{
@@ -38,6 +46,9 @@
     
 }
 
+- (void)jumpWeb{
+    [self.navigator openString:@"https://www.baidu.com" withQuery:@{@"name":@"HomeViewController"} animate:YES];
+}
 /*
 #pragma mark - Navigation
 

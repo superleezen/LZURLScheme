@@ -1,7 +1,7 @@
 use_frameworks!
 
 target 'LZURLScheme_Example' do
-  pod 'LZURLScheme', :path => '../'
+  pod 'LZURLScheme', :path => '../'    
 
 end
 
