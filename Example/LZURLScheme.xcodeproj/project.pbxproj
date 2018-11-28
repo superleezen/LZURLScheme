@@ -11,6 +11,7 @@
 		363351BC21A97774004399BA /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 363351BB21A97774004399BA /* HomeViewController.m */; };
 		363351C021A9793D004399BA /* AViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 363351BE21A9793D004399BA /* AViewController.m */; };
 		363351C121A9793D004399BA /* AViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 363351BF21A9793D004399BA /* AViewController.xib */; };
+		36586F8C21AE3B0D00C8FAA5 /* BViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 36586F8B21AE3B0D00C8FAA5 /* BViewController.m */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
 		6003F592195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
@@ -43,6 +44,8 @@
 		363351BD21A9793D004399BA /* AViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AViewController.h; sourceTree = "<group>"; };
 		363351BE21A9793D004399BA /* AViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AViewController.m; sourceTree = "<group>"; };
 		363351BF21A9793D004399BA /* AViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AViewController.xib; sourceTree = "<group>"; };
+		36586F8A21AE3B0D00C8FAA5 /* BViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BViewController.h; sourceTree = "<group>"; };
+		36586F8B21AE3B0D00C8FAA5 /* BViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BViewController.m; sourceTree = "<group>"; };
 		4447DC7139E0269033DE9AAE /* Pods-LZURLScheme_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LZURLScheme_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LZURLScheme_Example/Pods-LZURLScheme_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		551AB670E686B7C5A892E597 /* Pods_LZURLScheme_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LZURLScheme_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58A195388D20070C39A /* LZURLScheme_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LZURLScheme_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -147,6 +150,8 @@
 				363351BD21A9793D004399BA /* AViewController.h */,
 				363351BE21A9793D004399BA /* AViewController.m */,
 				363351BF21A9793D004399BA /* AViewController.xib */,
+				36586F8A21AE3B0D00C8FAA5 /* BViewController.h */,
+				36586F8B21AE3B0D00C8FAA5 /* BViewController.m */,
 				71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */,
 				6003F5A8195388D20070C39A /* Images.xcassets */,
 				6003F594195388D20070C39A /* Supporting Files */,
@@ -349,6 +354,7 @@
 				363351BC21A97774004399BA /* HomeViewController.m in Sources */,
 				363351C021A9793D004399BA /* AViewController.m in Sources */,
 				6003F59E195388D20070C39A /* LZAppDelegate.m in Sources */,
+				36586F8C21AE3B0D00C8FAA5 /* BViewController.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

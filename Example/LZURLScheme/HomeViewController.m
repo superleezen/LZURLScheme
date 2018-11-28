@@ -28,21 +28,32 @@
     button.frame = CGRectMake(100, 300, 200, 30);
     button.backgroundColor = [UIColor blueColor];
     [button setTitle:@"跳转A控制器" forState:UIControlStateNormal];
-    [button addTarget:self action:@selector(jump) forControlEvents:UIControlEventTouchUpInside];
+    [button addTarget:self action:@selector(jumpA) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:button];
     
+    UIButton *button0 = [[UIButton alloc] init];
+    button0.frame = CGRectMake(100, 400, 200, 30);
+    button0.backgroundColor = [UIColor blueColor];
+    [button0 setTitle:@"跳转B控制器" forState:UIControlStateNormal];
+    [button0 addTarget:self action:@selector(jumpB) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:button0];
     
     UIButton *button1 = [[UIButton alloc] init];
-    button1.frame = CGRectMake(100, 400, 200, 30);
+    button1.frame = CGRectMake(100, 500, 200, 30);
     button1.backgroundColor = [UIColor blueColor];
-    [button1 setTitle:@"跳转Web" forState:UIControlStateNormal];
+    [button1 setTitle:@"跳转WebView" forState:UIControlStateNormal];
     [button1 addTarget:self action:@selector(jumpWeb) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:button1];
     
 }
 
-- (void)jump{
-    [self.navigator openString:@"page://AViewController" withQuery:@{@"name":@"HomeViewController"} animate:NO];
+- (void)jumpA{
+    [self.navigator openString:@"page://AViewController" withQuery:@{@"name":@"HomeViewController"} animate:YES];
+    
+}
+
+- (void)jumpB{
+    [self.navigator presentString:@"page://BViewController" withQuery:@{@"name":@"HomeViewController"}];
     
 }
 
