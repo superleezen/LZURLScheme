@@ -6,11 +6,11 @@
 //  Copyright © 2018年 emailoflizheng@126.com. All rights reserved.
 //
 
-#import "SDKViewController.h"
+#import "LZBaseViewController.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface BViewController : SDKViewController
+@interface BViewController : LZBaseViewController
 
 @end
 

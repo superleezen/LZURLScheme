@@ -12,6 +12,10 @@
 		363351C021A9793D004399BA /* AViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 363351BE21A9793D004399BA /* AViewController.m */; };
 		363351C121A9793D004399BA /* AViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 363351BF21A9793D004399BA /* AViewController.xib */; };
 		36586F8C21AE3B0D00C8FAA5 /* BViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 36586F8B21AE3B0D00C8FAA5 /* BViewController.m */; };
+		36586F8F21AE483C00C8FAA5 /* UINavigationItem+CustomItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 36586F8E21AE483C00C8FAA5 /* UINavigationItem+CustomItem.m */; };
+		36586F9221AE485600C8FAA5 /* UIViewController+CustomItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 36586F9121AE485600C8FAA5 /* UIViewController+CustomItem.m */; };
+		36586F9521AE486C00C8FAA5 /* CustomBarItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 36586F9421AE486C00C8FAA5 /* CustomBarItem.m */; };
+		36586F9921AE645C00C8FAA5 /* LZBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 36586F9821AE645C00C8FAA5 /* LZBaseViewController.m */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
 		6003F592195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
@@ -46,6 +50,14 @@
 		363351BF21A9793D004399BA /* AViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AViewController.xib; sourceTree = "<group>"; };
 		36586F8A21AE3B0D00C8FAA5 /* BViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BViewController.h; sourceTree = "<group>"; };
 		36586F8B21AE3B0D00C8FAA5 /* BViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BViewController.m; sourceTree = "<group>"; };
+		36586F8D21AE483C00C8FAA5 /* UINavigationItem+CustomItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UINavigationItem+CustomItem.h"; sourceTree = "<group>"; };
+		36586F8E21AE483C00C8FAA5 /* UINavigationItem+CustomItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UINavigationItem+CustomItem.m"; sourceTree = "<group>"; };
+		36586F9021AE485600C8FAA5 /* UIViewController+CustomItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+CustomItem.h"; sourceTree = "<group>"; };
+		36586F9121AE485600C8FAA5 /* UIViewController+CustomItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+CustomItem.m"; sourceTree = "<group>"; };
+		36586F9321AE486C00C8FAA5 /* CustomBarItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomBarItem.h; sourceTree = "<group>"; };
+		36586F9421AE486C00C8FAA5 /* CustomBarItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomBarItem.m; sourceTree = "<group>"; };
+		36586F9721AE645C00C8FAA5 /* LZBaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LZBaseViewController.h; sourceTree = "<group>"; };
+		36586F9821AE645C00C8FAA5 /* LZBaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LZBaseViewController.m; sourceTree = "<group>"; };
 		4447DC7139E0269033DE9AAE /* Pods-LZURLScheme_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LZURLScheme_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LZURLScheme_Example/Pods-LZURLScheme_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		551AB670E686B7C5A892E597 /* Pods_LZURLScheme_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LZURLScheme_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58A195388D20070C39A /* LZURLScheme_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LZURLScheme_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -106,6 +118,19 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		36586F9621AE498D00C8FAA5 /* CustomItem */ = {
+			isa = PBXGroup;
+			children = (
+				36586F8D21AE483C00C8FAA5 /* UINavigationItem+CustomItem.h */,
+				36586F8E21AE483C00C8FAA5 /* UINavigationItem+CustomItem.m */,
+				36586F9021AE485600C8FAA5 /* UIViewController+CustomItem.h */,
+				36586F9121AE485600C8FAA5 /* UIViewController+CustomItem.m */,
+				36586F9321AE486C00C8FAA5 /* CustomBarItem.h */,
+				36586F9421AE486C00C8FAA5 /* CustomBarItem.m */,
+			);
+			name = CustomItem;
+			sourceTree = "<group>";
+		};
 		6003F581195388D10070C39A = {
 			isa = PBXGroup;
 			children = (
@@ -143,8 +168,11 @@
 		6003F593195388D20070C39A /* Example for LZURLScheme */ = {
 			isa = PBXGroup;
 			children = (
+				36586F9621AE498D00C8FAA5 /* CustomItem */,
 				6003F59C195388D20070C39A /* LZAppDelegate.h */,
 				6003F59D195388D20070C39A /* LZAppDelegate.m */,
+				36586F9721AE645C00C8FAA5 /* LZBaseViewController.h */,
+				36586F9821AE645C00C8FAA5 /* LZBaseViewController.m */,
 				363351BA21A97774004399BA /* HomeViewController.h */,
 				363351BB21A97774004399BA /* HomeViewController.m */,
 				363351BD21A9793D004399BA /* AViewController.h */,
@@ -351,9 +379,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				36586F8F21AE483C00C8FAA5 /* UINavigationItem+CustomItem.m in Sources */,
+				36586F9521AE486C00C8FAA5 /* CustomBarItem.m in Sources */,
+				36586F9221AE485600C8FAA5 /* UIViewController+CustomItem.m in Sources */,
 				363351BC21A97774004399BA /* HomeViewController.m in Sources */,
 				363351C021A9793D004399BA /* AViewController.m in Sources */,
 				6003F59E195388D20070C39A /* LZAppDelegate.m in Sources */,
+				36586F9921AE645C00C8FAA5 /* LZBaseViewController.m in Sources */,
 				36586F8C21AE3B0D00C8FAA5 /* BViewController.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
 			);

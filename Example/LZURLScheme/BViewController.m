@@ -20,19 +20,24 @@
     self.title = @"BViewController";
     self.view.backgroundColor = [UIColor whiteColor];
     
+//    [self setLeftTitle:@"关闭"];
+    [self setLeftTitle:@"关闭" imageName:@"" highlighted:@"" completeBlock:^(UIButton *btn) {
+        [btn setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+    }];
     
-    UIButton *left = [[UIButton alloc] init];
-    left.titleLabel.font = [UIFont systemFontOfSize:15];
-    [left setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [left setTitle:@"关闭" forState:UIControlStateNormal];
-    [left addTarget:self action:@selector(close) forControlEvents:UIControlEventTouchUpInside];
-    UIBarButtonItem *leftItem = [[UIBarButtonItem alloc] initWithCustomView:left];
-    [self.navigationItem setLeftBarButtonItem:leftItem];
+//    UIButton *left = [[UIButton alloc] init];
+//    left.titleLabel.font = [UIFont systemFontOfSize:15];
+//    [left setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+//    [left setTitle:@"关闭" forState:UIControlStateNormal];
+//    [left addTarget:self action:@selector(close) forControlEvents:UIControlEventTouchUpInside];
+//    UIBarButtonItem *leftItem = [[UIBarButtonItem alloc] initWithCustomView:left];
+//    [self.navigationItem setLeftBarButtonItem:leftItem];
+    
 }
 
-- (void)close{
-    [self dismissViewControllerAnimated:YES completion:NULL];
-}
+//- (void)close{
+//    [self dismissViewControllerAnimated:YES completion:NULL];
+//}
 /*
 #pragma mark - Navigation
 
